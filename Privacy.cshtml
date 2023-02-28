@@ -1,0 +1,73 @@
+﻿@model List<Mk_Core_API_MVC.Models.login>
+
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<style>
+    body {
+        background-color: darkslategray
+    }
+
+    .mk {
+        border: 2px solid black;
+    }
+
+    .th {
+        background-color: hotpink
+    }
+
+    .tr {
+        background-color: lemonchiffon
+    }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js">
+</script>
+<script>
+    $(document).ready(function () {
+        alert("You want to enter in page");
+        $("tr:odd").css("background-color", "skyblue")
+
+        $(".ab").click(function () {
+            alert("You Want to Edit Record");
+        });
+
+        $(".ac").click(function () {
+            alert("You Sure to Delete this Record");
+        });
+
+        $(".ab").mouseenter(function () {
+            $("tr:Even").css("background-color", "greenyellow")
+            $("tr:odd").css("background-color", "lemonchiffon")
+        });
+        $(".ac").mouseenter(function () {
+            $("tr:odd").css("background-color", "lightcyan")
+            $("tr:Even").css("background-color", "lightgreen")
+        });
+    });
+</script>
+
+<partial name="Session">
+
+<h1 style="color:antiquewhite"><u>Login Details:-</u></h1>
+
+<table class="table table-bordered table-hover table-responsive mk">
+<tr class="th">
+    <th>Id</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Password</th>
+    <th>Delete</th>
+</tr>
+
+@foreach (var item in Model)
+{
+    <tr class="tr">
+        <td>@item.Id</td>
+        <td>@item.Name</td>
+        <td>@item.Email</td>
+        <td>@item.password</td>
+        <td><a class="btn btn-danger ac" asp-action="DeleteLogin" asp-controller="Home" asp-route-Id="@item.Id ">Delete</a></td>
+    </tr>
+}
+</table>

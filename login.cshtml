@@ -1,0 +1,81 @@
+﻿@model Mk_Core_API_MVC.Models.login
+@{
+    ViewBag.Title = "login";
+}
+<style>
+   .mk{
+        background: url('@Url.Content("~/css/image/pic2.jpg")');
+        background-size: 1500px,100px;
+       
+    }
+    body{
+        background-color:mediumseagreen;
+    }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js">
+</script>
+<script>
+    $(document).ready(function() {
+      alert("You want to enter in page");
+
+    $("input").focus(function(){
+        $(this).css("background-color", "yellow")
+        $('h5').show();
+    });
+
+    $("input").blur(function () {
+        $(this).css("background-color", "pink")
+    });
+
+    $("button").click(function(){
+      alert("You want to login");
+    });
+    });
+</script>
+
+<section class="vh-100  mk" >
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5" >
+                <div class="card shadow-2-strong" style="border-radius: 1rem; background-color:blanchedalmond">
+                    <div class="card-body p-5 text-center" >
+
+                            <h1 class="mb-5"><b>Sign in</b></h1>
+                       <hr>
+
+                        <form asp-action="Login" asp-controller="Home" method="post">
+                            <div class="form-group">
+                                <h4 style="text-align:left"><label>Email</label></h4>
+                                <input asp-for="Email" class="form-control" type="text" />
+                                <span class="text-danger" asp-validation-for="Email"></span>
+                                <h6 style="color:red">@TempData["Invalid Email"]</h6>
+                            </div>
+
+                            <div class="form-group">
+                                <h4 style="text-align:left"><label>Password</label></h4>
+                                <input asp-for="password" class="form-control" type="password" />
+                                <span class="text-danger" asp-validation-for="password"></span>
+                                <h6 style="color:red">@TempData["Invalid Password"]</h6>
+                            </div> 
+
+                        <!-- Checkbox -->
+                        <div class="form-check d-flex justify-content-start mb-4">
+                            <input class="form-check-input" type="checkbox" value="" id="form1Example3" />
+                                <label class="form-check-label" for="form1Example3"><b>Remember password </b> </label>
+                        </div>
+
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+                        <td><a class="btn btn-link" asp-action="Regestration" asp-controller="Home">ForgetPassword</a></td>
+                        <H3>RegestrationFirst</H3>
+                        <a class="btn btn-link" asp-action="Regestration" asp-controller="Home">ClickHearForRegestration </a>
+                            
+                       </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>

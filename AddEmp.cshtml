@@ -1,0 +1,151 @@
+﻿@model Mk_Core_API_MVC.Models.EmpModel
+
+@{
+    ViewData["Title"] = "AddEmp";
+}
+
+<style>
+    body {
+        background: url('@Url.Content("~/css/image/images.jpg")');
+        background-size: 1750px,10px;
+         /*background-color:cornflowerblue;*/
+    }
+
+    .back {
+       background: url('@Url.Content("~/css/image/pic3.jpg")');
+        /*background-color:aqua;*/
+    }
+
+    .Mk {
+        border: 2Px solid black;
+        width: 30%;
+    }
+
+    .sk {
+        border: 2Px solid black;
+        background-color:greenyellow;
+       
+    }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js">
+</script>
+<script>
+    $(document).ready(function () {
+        alert("You want to enter in page");
+
+        $("input").focus(function () {
+            $(this).css("background-color", "yellow")
+            $('h5').show();
+        }); 
+
+        $("input").blur(function () {
+        $(this).css("background-color", "Pink")
+            });
+
+        $("button").click(function () {
+            alert("You want to Submit form");
+        });
+    });
+</script>
+
+<center><partial name="Session"></center><
+
+    <section class="vh-100">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem; background-color:lightgreen">
+                    <div class="card-body p-5 text-center">
+
+                        <h1 class="mb-5" style="background-color:lightcyan"><b>Add Employee</b></h1>
+                        <hr>
+
+                            <form class="back" asp-action="AddEmp" asp-controller="Home" method="post">
+
+                                <input asp-for="Id" type="hidden" />
+
+                                <div class="form-group">
+                                <h5 style="text-align:left"><label>Name</label></h5>
+                                    <input asp-for="Name" class="form-control" type="text" />
+                                    <span class="text-danger" asp-validation-for="Name"></span>
+                                </div>
+
+                                <div class="form-group ">
+                                <h5 style="text-align:left"><label>Age</label></h5>
+                                    <input asp-for="Age" class="form-control" type="text" />
+                                    <span class="text-danger" asp-validation-for="Age"></span>
+                                </div>
+
+                                <div class="form-group ">
+                                <h5 style="text-align:left"><label>DOB</label></h5>
+                                    <input asp-for="Date" class="form-control type="date" />
+                                </div>
+
+                                <div class="form-group ">
+                                <h5 style="text-align:left"><label>Email</label></h5>
+                                    <input asp-for="Email" class="form-control type="text" />
+                                    <span class="text-danger" asp-validation-for="Email"></span>
+                                </div>
+
+                                <div class="form-group ">
+                                <h5 style="text-align:left"><label>Phone</label></h5>
+                                    <input asp-for="Phone" class="form-control type="text" />
+                                    <span class="text-danger" asp-validation-for="Phone"></span>
+                                </div>
+
+                                <div class="form-group ">
+                                <h5 style="text-align:left"><label>Address</label></h5>
+                                    <input asp-for="Address" class="form-control type="text" />
+                                    <span class="text-danger" asp-validation-for="Address"></span>
+                                </div>
+
+                                <div class="form-group ">
+                                <h5 style="text-align:left"><label>ZipCode</label></h5>
+                                    <input asp-for="ZipCode" class="form-control type="text" />
+                                    <span class="text-danger" asp-validation-for="ZipCode"></span>
+                                </div>
+
+                                <div class="form-group ">
+                                <h5 style="text-align:left"><label>Company</label></h5>
+                                    <input asp-for="Company" class="form-control type="text" />
+                                    <span class="text-danger" asp-validation-for="Company"></span>
+                                </div>
+
+                                <div class="form-group ">
+                                <h5 style="text-align:left"><label>City</label></h5>
+                                    <input asp-for="City" class="form-control type="text" />
+                                    <span class="text-danger" asp-validation-for="City"></span>
+                                </div>
+
+                                <div class="form-group ">
+                                <h5 style="text-align:left"> <label>Department</label></h5>
+                                    <input asp-for="Department" class="form-control type="text" />
+                                    <span class="text-danger" asp-validation-for="Department"></span>
+                                </div>
+
+                                <div class="form-group">
+                                <h5 style="text-align:left"><label>Selary</label></h5>
+                                    <input asp-for="Selary" class="form-control type="text" />
+                                    <span class="text-danger" asp-validation-for="Selary"></span>
+                                </div>
+
+                                <center>
+                                    <button class="btn btn-success" type="submit">Submit Form</button>
+                                    <button class="btn btn-danger" type="reset">Reset</button>
+                                </center>
+
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+

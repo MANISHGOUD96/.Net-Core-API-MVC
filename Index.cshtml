@@ -1,0 +1,93 @@
+﻿@model List<Mk_Core_API_MVC.Models.EmpModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+     body{
+        background-color:darkslategray
+    }
+    
+    .mk{
+        border:2px solid black;
+    }
+    .th{
+        background-color:hotpink
+    }
+    .tr{
+        background-color:lemonchiffon
+    }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js">
+</script>
+<script>
+    $(document).ready(function () {
+        alert("You want to enter in page");
+        $("tr:odd").css("background-color", "skyblue")
+        
+        $(".ab").click(function () {
+            alert("You Want to Edit Record");
+        });
+
+        $(".ac").click(function () {
+            alert("You Sure to Delete this Record");
+        });
+
+        $(".ab").mouseenter(function(){
+            $("tr:Even").css("background-color", "greenyellow")
+            $("tr:odd").css("background-color", "lemonchiffon")
+        });
+        $(".ac").mouseenter(function () {
+            $("tr:odd").css("background-color", "lightcyan")
+            $("tr:Even").css("background-color", "lightgreen")
+        });
+    });
+</script>
+
+<a class="btn btn-primary" href="AddEmp">AddNewEmployee</a>
+
+<partial name="Session">
+
+    <h1 style="color:antiquewhite"><u>Employee Details:-</u></h1>
+
+    <table class="table table-bordered table-hover table-responsive mk">
+        <tr class="th">
+        <th>Id</th>
+        <th>Name</th>
+        <th>Age </th>
+        <th>DOB</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>ZipCode</th>
+        <th>Company</th>
+        <th>City</th>
+        <th>Department</th>                        
+        <th>Selary</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="tr">
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Age</td>
+            <td>@item.Date.Date.ToShortDateString()</td>
+            <td>@item.Email</td>
+            <td>@item.Phone</td>
+            <td>@item.Address</td>
+            <td>@item.ZipCode</td>
+            <td>@item.Company</td>
+            <td>@item.City</td>
+            <td>@item.Department</td>
+            <td>@item.Selary</td>
+            <td><a class="btn btn-success ab" asp-action="Edit" asp-controller="Home" asp-route-Id="@item.Id ">Edit</a></td>
+            <td><a class="btn btn-danger ac" asp-action="Delete" asp-controller="Home" asp-route-Id="@item.Id ">Delete</a></td>
+        </tr>
+    }
+</table>
+    

@@ -1,0 +1,6 @@
+﻿<!--7th Step of using Session-->
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+<!--There Use Session-->
+<h4 style="color:cyan">@HttpContextAccessor.HttpContext.Session.GetString("Name")</h4>

@@ -1,0 +1,85 @@
+﻿@model Mk_Core_API_MVC.Models.login
+@{
+    ViewBag.Title = "Regestration";
+}
+
+<style>
+    body {
+        background: url('@Url.Content("~/css/image/images.jpg")');
+        background-size: 1750px,10px;
+        /*background-color:cornflowerblue;*/
+    }
+
+    .back {
+        background: url('@Url.Content("~/css/image/pic3.jpg")');
+        /*background-color:aqua;*/
+    }
+    .sk {
+        border: 2Px solid black;
+        background-color: greenyellow;
+    }
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js">
+</script>
+<script>
+    $(document).ready(function() {
+      alert("You want to enter in page");
+
+    $("input").focus(function(){
+        $(this).css("background-color", "yellow")
+        $('h5').show();
+    });
+
+    $("input").blur(function () {
+        $(this).css("background-color", "pink")
+    });
+
+    $("button").click(function(){
+      alert("You want to Submit");
+    });
+    });
+</script>
+
+<section class="vh-100">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem; background-color:darkcyan">
+                    <div class="card-body p-5 text-center">
+
+                        <h1 class="mb-5" style="background-color:greenyellow"><b>Regestration Page</b></h1>
+                        <hr>
+
+                           <form class="back" asp-action="Regestration" asp-controller="Home" method="post">
+
+                            <div class="form-group">
+                                <h4 style ="text-align:left"><label>Name</label></h4>
+                                <input asp-for="Name" class="form-control" type="text" />
+                                <span class="text-danger" asp-validation-for="Name"></span>
+                            </div>
+
+                            <div class="form-group ">
+                                <h4 style="text-align:left"><label>Email</label></h4>
+                                <input asp-for="Email" class="form-control" type="text" />
+                                <span class="text-danger" asp-validation-for="Email"></span>
+                                <h6 style="color:red">@TempData["Email"]</h6>
+                            </div>
+
+                            <div class="form-group ">
+                                <h4 style="text-align:left"><label>Password</label></h4>
+                                <input asp-for="password" class="form-control" type="password" />
+                                <span class="text-danger" asp-validation-for="password"></span>
+                            </div>
+                            </br>
+                            <button class="btn btn-primary btn-lg btn-block" type="submit">Regestration</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
